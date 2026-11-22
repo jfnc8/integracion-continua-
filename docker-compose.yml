@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: calculadora-app
+  verificador:
+    build: .
+    container_name: calculadora-verificador
+    depends_on:
+      - app
