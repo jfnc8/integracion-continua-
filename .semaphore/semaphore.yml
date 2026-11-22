@@ -1,0 +1,14 @@
+version: v1.0
+name: Integracion Continua
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+    - name: Construir y probar
+    task:
+      jobs:
+                - name: Build y test
+          commands:
+                        - docker compose up --build --abort-on-container-exit
+                        - docker compose run --rm app python app.py
