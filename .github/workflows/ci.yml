@@ -1,0 +1,20 @@
+name: CI - Integracion Continua
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar codigo
+        uses: actions/checkout@v4
+
+      - name: Construir y levantar los 2 contenedores
+        run: docker compose up --build --abort-on-container-exit
+
+      - name: Ejecutar operacion de ejemplo
+        run: docker compose run --rm app python app.py
