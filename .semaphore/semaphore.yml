@@ -11,4 +11,5 @@ blocks:
                 - name: Build y test
           commands:
                         - docker compose up --build --abort-on-container-exit
-                        - docker compose run --rm app python app.py
+                        - docker compose run --rm app python app.py 
+                        # pipeline corregido
